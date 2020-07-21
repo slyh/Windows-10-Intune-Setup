@@ -10,7 +10,7 @@ $PathRules += New-CIPolicyRule -FilePathRule "%windir%\*";
 $PathRules += New-CIPolicyRule -FilePathRule "%OSDrive%\Program Files\*";
 $PathRules += New-CIPolicyRule -FilePathRule "%OSDrive%\Program Files (x86)\*";
 Merge-CIPolicy -OutputFilePath $ResultPolicy -PolicyPaths $SourcePolicies -Rules $PathRules
-Set-CIPolicyIdInfo -FilePath $ResultPolicy -PolicyId "710fe229-f585-4533-8421-72212153b9fd"
+Set-CIPolicyIdInfo -FilePath $ResultPolicy -ResetPolicyID
 ```
 
 ### 3) Set policy rules**
@@ -43,7 +43,7 @@ Copy-Item $ResultPolicy -Destination "C:\Windows\System32\CodeIntegrity"
 
 ### 6) Deploy by MDM**
 ```
-OMA-URI: ./Vendor/MSFT/ApplicationControl/Policies/710fe229-f585-4533-8421-72212153b9fd/Policy
+OMA-URI: ./Vendor/MSFT/ApplicationControl/Policies/<Policy GUID>/Policy
 Data type: Base64
 Certificate file: upload your binary format policy file. You do not need to upload a Base64 file, as Intune will convert the uploaded .bin file to Base64 on your behalf.
 Note: Policy GUID can be found in the policy xml as <PolicyID>.
