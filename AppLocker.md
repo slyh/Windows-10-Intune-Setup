@@ -1,26 +1,22 @@
 # Recommended Rules
-
+***
 ### Executable Rules
-
-##### Allow file path
 * %PROGRAMFILES%\*
 * %WINDIR%\*
 * %OSDRIVE%\Users\*\AppData\Local\Microsoft\OneDrive\*
 * %OSDrive%\ProgramData\Microsoft\Windows Defender\Platform\*
 
 ### Windows Installer Rules
-
-##### Allow file path
 * %WINDIR%\Installer\*
 
 ### Script Rules
-
-##### Allow file path
 * %PROGRAMFILES%\*
 * %WINDIR%\*
 
-# CSP Reference
+### Packaged app Rules
 
+# CSP Reference
+***
 ### EXE Policy
 ```xml
 OMA-URI: ./Vendor/MSFT/AppLocker/ApplicationLaunchRestrictions/8618b660-ca48-4952-90e1-eba438f23dcc/EXE/Policy
@@ -73,10 +69,11 @@ Value:
 </RuleCollection>
 ```
 
-Note: Delete/unenrollment is not properly supported unless Grouping values are unique across enrollments. If multiple enrollments use the same Grouping value, then unenrollment will not work as expected since there are duplicate URIs that get deleted by the resource manager. To prevent this problem, the Grouping value should include some randomness. The best practice is to use a randomly generated GUID. However, there is no requirement on the exact value of the node.
+### Note
+> Delete/unenrollment is not properly supported unless Grouping values are unique across enrollments. If multiple enrollments use the same Grouping value, then unenrollment will not work as expected since there are duplicate URIs that get deleted by the resource manager. To prevent this problem, the Grouping value should include some randomness. The best practice is to use a randomly generated GUID. However, there is no requirement on the exact value of the node.
 
 # Reference
-
+***
 AppLocker CSP
 
 https://docs.microsoft.com/en-us/windows/client-management/mdm/applocker-csp
