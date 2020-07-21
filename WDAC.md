@@ -1,6 +1,8 @@
-**1) Create block.xml with [Microsoft recommended block rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules)**
+# Setup
+***
+### 1) Create block.xml with [Microsoft recommended block rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules)**
 
-**2) Add rules to allow windir and Program Files directories and merge with default Windows rules and recommended block rules**
+### 2) Add rules to allow windir and Program Files directories and merge with default Windows rules and recommended block rules**
 ```powershell
 $SourcePolicies = "block.xml","C:\Windows\schemas\CodeIntegrity\ExamplePolicies\DefaultWindows_Enforced.xml";
 $ResultPolicy = "result.xml";
@@ -8,9 +10,10 @@ $PathRules += New-CIPolicyRule -FilePathRule "%windir%\*";
 $PathRules += New-CIPolicyRule -FilePathRule "%OSDrive%\Program Files\*";
 $PathRules += New-CIPolicyRule -FilePathRule "%OSDrive%\Program Files (x86)\*";
 Merge-CIPolicy -OutputFilePath $ResultPolicy -PolicyPaths $SourcePolicies -Rules $PathRules
+Set-CIPolicyIdInfo -FilePath $ResultPolicy -PolicyId "710fe229-f585-4533-8421-72212153b9fd"
 ```
 
-**3) Set policy rules**
+### 3) Set policy rules**
 ```powershell
 Set-RuleOption -FilePath $ResultPolicy -Option 0          # Enable UMCI
 Set-RuleOption -FilePath $ResultPolicy -Option 2          # Require WHQL
@@ -28,26 +31,26 @@ Set-RuleOption -FilePath $ResultPolicy -Option 18 -Delete # Enable Runtime FileP
 Set-RuleOption -FilePath $ResultPolicy -Option 19         # Enable Dynamic Code Security
 ```
 
-**4) Covert the policy into binary**
+### 4) Covert the policy into binary**
 ```powershell
 ConvertFrom-CIPolicy $ResultPolicy "SIPolicy.p7b"
 ```
 
-**5) Deploy on local machine (Skip this part if deploy by MDM)**
+### 5) Deploy on local machine (Skip this part if deploy by MDM)**
 ```powershell
 Copy-Item $ResultPolicy -Destination "C:\Windows\System32\CodeIntegrity"
 ```
 
-**6) Deploy by MDM**
+### 6) Deploy by MDM**
 ```
-OMA-URI: ./Vendor/MSFT/ApplicationControl/Policies/<Policy GUID>/Policy
+OMA-URI: ./Vendor/MSFT/ApplicationControl/Policies/710fe229-f585-4533-8421-72212153b9fd/Policy
 Data type: Base64
 Certificate file: upload your binary format policy file. You do not need to upload a Base64 file, as Intune will convert the uploaded .bin file to Base64 on your behalf.
-Note: Policy GUID can be found in the policy xml.
+Note: Policy GUID can be found in the policy xml as <PolicyID>.
 ```
 
-***Reference***
-
+# Reference
+***
 Microsoft recommended block rules
 
 https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules
