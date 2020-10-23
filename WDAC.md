@@ -9,7 +9,15 @@ $ResultPolicy = "result.xml";
 Merge-CIPolicy -OutputFilePath $ResultPolicy -PolicyPaths $SourcePolicies
 Set-CIPolicyIdInfo -FilePath $ResultPolicy -ResetPolicyID
 ```
-or (with path rules)
+or (with path rule blacklist)
+```powershell
+$SourcePolicies = "block.xml","C:\Windows\schemas\CodeIntegrity\ExamplePolicies\DefaultWindows_Enforced.xml";
+$ResultPolicy = "result.xml";
+$PathRules += New-CIPolicyRule -FilePathRule "%OSDrive%\Users\*" -Deny;
+Merge-CIPolicy -OutputFilePath $ResultPolicy -PolicyPaths $SourcePolicies -Rules $PathRules
+Set-CIPolicyIdInfo -FilePath $ResultPolicy -ResetPolicyID
+```
+or (with path rule whitelist)
 ```powershell
 $SourcePolicies = "block.xml","C:\Windows\schemas\CodeIntegrity\ExamplePolicies\DefaultWindows_Enforced.xml";
 $ResultPolicy = "result.xml";
