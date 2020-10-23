@@ -21,6 +21,7 @@ Set-RuleOption -FilePath $ResultPolicy -Option 3 -Delete  # Disable Audit Mode
 Set-RuleOption -FilePath $ResultPolicy -Option 4          # Disable Flight Signing
 Set-RuleOption -FilePath $ResultPolicy -Option 5 -Delete  # Disable Inherit Default Policy
 Set-RuleOption -FilePath $ResultPolicy -Option 6          # Enable Unsigned System Integrity Policy
+Set-RuleOption -FilePath $ResultPolicy -Option 8          # Require EV Signers
 Set-RuleOption -FilePath $ResultPolicy -Option 10 -Delete # Disable Boot Audit on Failure
 Set-RuleOption -FilePath $ResultPolicy -Option 11 -Delete # Enable Script Enforcement
 Set-RuleOption -FilePath $ResultPolicy -Option 12         # Require Enforce Store Applications
