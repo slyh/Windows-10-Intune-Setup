@@ -6,6 +6,13 @@
 ```powershell
 $SourcePolicies = "block.xml","C:\Windows\schemas\CodeIntegrity\ExamplePolicies\DefaultWindows_Enforced.xml";
 $ResultPolicy = "result.xml";
+Merge-CIPolicy -OutputFilePath $ResultPolicy -PolicyPaths $SourcePolicies
+Set-CIPolicyIdInfo -FilePath $ResultPolicy -ResetPolicyID
+```
+or (with path rules)
+```powershell
+$SourcePolicies = "block.xml","C:\Windows\schemas\CodeIntegrity\ExamplePolicies\DefaultWindows_Enforced.xml";
+$ResultPolicy = "result.xml";
 $PathRules += New-CIPolicyRule -FilePathRule "%windir%\*";
 $PathRules += New-CIPolicyRule -FilePathRule "%OSDrive%\Program Files\*";
 $PathRules += New-CIPolicyRule -FilePathRule "%OSDrive%\Program Files (x86)\*";
