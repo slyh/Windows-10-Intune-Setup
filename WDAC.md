@@ -38,7 +38,7 @@ ConvertFrom-CIPolicy $ResultPolicy "SIPolicy.p7b"
 
 ### 5) Deploy on local machine (Skip this part if deploy by MDM)**
 ```powershell
-Copy-Item $ResultPolicy -Destination "C:\Windows\System32\CodeIntegrity"
+Copy-Item "SIPolicy.p7b" -Destination "C:\Windows\System32\CodeIntegrity"
 ```
 
 ### 6) Deploy by MDM**
