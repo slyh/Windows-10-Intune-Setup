@@ -42,7 +42,14 @@ Allow installation of devices using drivers for these device classes:
 {4D36E97D-E325-11CE-BFC1-08002BE10318}
 ```
 
+##### Computer Configuration/System/Device Installation/Device Installation Restrictions
 ```
 Setting: Prevent installation of devices not described by other policy settings
 State: Enabled
 ```
+
+# Reference
+***
+Class and ClassGuid entries for INF Version Section
+
+https://docs.microsoft.com/en-us/windows-hardware/drivers/install/system-defined-device-setup-classes-available-to-vendors
