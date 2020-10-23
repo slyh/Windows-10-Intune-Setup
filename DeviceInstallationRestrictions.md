@@ -48,6 +48,21 @@ Setting: Prevent installation of devices not described by other policy settings
 State: Enabled
 ```
 
+### Microsoft Endpoint Manager > Endpoint security > Attack surface reduction
+
+**Platform:** Windows 10 and later
+
+**Profile:** Device control
+
+Setting | Value
+--------|------
+Block direct memory access | Yes
+Enumeration of external devices incompatible with Kernel DMA Protection | Block all
+Block removable storage | Yes
+Block bluetooth pre-pairing | Yes
+Block bluetooth advertising | Yes
+Block bluetooth proximal connections | Yes
+
 # Reference
 ***
 Class and ClassGuid entries for INF Version Section
