@@ -3,6 +3,7 @@
 ### Microsoft Endpoint Manager > Devices > Configuration profiles
 https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles
 
+***
 
 #### Disable delivery optimization
 
@@ -14,6 +15,7 @@ Setting | Value
 --------|------
 Download mode | Simple download mode with no peering (99)
 
+***
 
 #### All sorts of things
 
@@ -24,6 +26,7 @@ Download mode | Simple download mode with no peering (99)
 Evaluate all the options.
 ```
 
+***
 
 #### Windows Hello for Business
 
@@ -34,6 +37,7 @@ Evaluate all the options.
 Evaluate all the options.
 ```
 
+***
 
 #### Turn on Credential Guard 
 
@@ -46,6 +50,7 @@ Setting | Value
 --------|------
 Credential Guard | Enable with UEFI lock
 
+***
 
 #### Disable Xbox services
 
