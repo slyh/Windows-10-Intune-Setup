@@ -2,7 +2,7 @@
 
 ***
 
-### [AppLocker](AppLccker.md)
+### [AppLocker](AppLocker.md)
 
 - Check if [Microsoft Media Creation Tool](https://www.microsoft.com/en-us/software-download/windows10) is able to run in non-allowed locations.
 
