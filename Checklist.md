@@ -32,3 +32,31 @@
 ### [Turn on Credential Guard](Others.md)
 
 - Check VBS and Credential Guard is turned on in System Infromation.
+
+# Settings require manual setup
+
+***
+
+### Require Ctrl + Alt + Del for UAC prompt
+
+**Group Policy**
+
+*Computer Configuration\Administrative Templates\Windows Components\Credential User Interface*
+
+Enable *Require trusted path for credential entry*.
+
+### Windows Firewall
+
+Block all incoming connections.
+
+### Require Windows Hello for Business for local login
+
+**Group Policy**
+
+*Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options*
+
+Enable *Interactive logon: Require Windows Hello for Business or smart card*
+
+### BitLocker
+
+To be filled.
